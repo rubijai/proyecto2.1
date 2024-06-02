@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JRA</title>
+</head>
+<body>
+<h2>Hasta pronto. Que Dios los bendiga</h2>
+{% if nombre_persona == "Jaime" %}
+<p> Es profesor Titular de la ULA</p>
+{# Este es un comentario en la plantilla de una línea#}
+{% comment %} Este comentario
+tiene mas de una línea.
+{% endcomment %}
+{% else %}
+<p> No es profesor Titular de la ULA</p>
+{% endif %}
+<p>Mi nombre es:{{nombre_persona.title}} {{apellido_persona.upper}} {{momento_actual}}</p>
+{# Uso de filtros en la línea anterior: cambia el punto por una barra vertical#}
+
+
+
+<p> El momento actual es: {{momento_actual}}</p>
+<p> La fecha actual es: {{momento_actual.day}} / {{momento_actual.month}} / {{momento_actual.year}} </p>
+<p> {{temas}}</p>
+<p> {{temas.0}}</p>
+<p><strong>Temas del curso</strong></p>
+<p>
+    <ul>
+        {% if temas %}
+            {% for elTema in temas %}
+
+                <li>{{elTema}}</li>
+
+            {% endfor %}
+        {% else %}
+            <p> No hay elementos que mostrar</p>
+        {% endif %}
+    </ul>
+
+</p>
+
+
+</body>
+</html>
